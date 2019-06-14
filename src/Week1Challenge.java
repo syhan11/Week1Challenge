@@ -36,50 +36,10 @@ public class Week1Challenge {
 
     }
 
-
-    public static void userOption() {
-        Boolean priNo;
-        int userNo = 0;
-        String msg = "";
-
-        Scanner keyboard = new Scanner(System.in);
-
-        System.out.print("Please enter an inter: ");
-        userNo = keyboard.nextInt();
-
-        // Check if given number is a prime number
-        priNo = ckPrime(userNo);
-
-        if (priNo)
-            msg = "is";
-        else
-            msg = "is not";
-
-        System.out.printf("%d %s a prime number.", userNo, msg);
-    }
-
-    public static void randomOption() {
-
-        int randomNo = 0, maxNo = 250;
-        Boolean priNo;
-        String msg = "";
-
-        Random tmp = new Random();
-        randomNo = tmp.nextInt(maxNo)+1;
-
-        priNo = ckPrime(randomNo);
-
-        if (priNo)
-            msg = "is";
-        else
-            msg = "is not";
-
-        System.out.printf("Random number %d %s a prime number.", randomNo, msg);
-
-    }
-
     public static void main(String[] args){
-        String userA = "";
+        String userA = "", msg = "";
+        Boolean priNo;
+        int userNo = 0, maxNo = 250;
 
         Scanner keyboard = new Scanner(System.in);
 
@@ -88,12 +48,25 @@ public class Week1Challenge {
 
         // Check user's option
         if ((userA.compareTo("y") == 0) || (userA.compareTo("Y") == 0)) {
+            // generate a random number
             System.out.println("Generating a random number...");
-            randomOption();
+
+            Random tmp = new Random();
+            userNo = tmp.nextInt(maxNo)+1;
         }
+        else {
+            // get a number from the user
+            System.out.print("Please enter an inter: ");
+            userNo = keyboard.nextInt();
+        }
+
+        // Check if given number is a prime number
+        priNo = ckPrime(userNo);
+        if (priNo)
+            msg = "is";
         else
-            userOption();
+            msg = "is not";
 
-
+        System.out.printf("%d %s a prime number.", userNo, msg);
     }
 }
