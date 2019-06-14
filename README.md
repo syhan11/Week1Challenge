@@ -1,1 +1,1 @@
-"#Week1 Challenge Option 1" 
+"#Week1 Challenge: Check if a number is a prime number." 
