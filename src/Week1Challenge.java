@@ -4,8 +4,12 @@
  *    The user will have to input a number, and you will display that number.
  *    You will check if that number is prime and indicate that to the user.
  *
+ * Option 2:
+ *    The system will generate a random number between 1 and 250.
+ *    Then it will check if that number is prime and indicate that to the user.
  */
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Week1Challenge {
@@ -32,7 +36,8 @@ public class Week1Challenge {
 
     }
 
-    public static void main(String[] args){
+
+    public static void userOption() {
         Boolean priNo;
         int userNo = 0;
         String msg = "";
@@ -53,4 +58,22 @@ public class Week1Challenge {
         System.out.printf("%d %s a prime number.", userNo, msg);
     }
 
+    public static void main(String[] args){
+        int randomNo = 0, maxNo = 250;
+        Boolean priNo;
+        String msg = "";
+
+        Random tmp = new Random();
+        randomNo = tmp.nextInt(maxNo)+1;
+
+        priNo = ckPrime(randomNo);
+
+        if (priNo)
+            msg = "is";
+        else
+            msg = "is not";
+
+        System.out.printf("Random number %d %s a prime number.", randomNo, msg);
+
+    }
 }
