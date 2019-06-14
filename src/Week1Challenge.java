@@ -36,6 +36,23 @@ public class Week1Challenge {
 
     }
 
+    public static void printPrime(int fromNo, int toNo){
+        Boolean checkPrim;
+        String msg = "";
+
+        for (int i = fromNo; i <= toNo; i++) {
+
+            // Check if given number is a prime number
+            checkPrim = ckPrime(i+1);
+            if (checkPrim)
+                msg = "is";
+            else
+                msg = "is not";
+
+            System.out.printf("%d %s a prime number.\n", i, msg);
+        }
+    }
+
     public static void main(String[] args){
         String userA = "", msg = "";
         Boolean priNo;
@@ -60,13 +77,10 @@ public class Week1Challenge {
             userNo = keyboard.nextInt();
         }
 
-        // Check if given number is a prime number
-        priNo = ckPrime(userNo);
-        if (priNo)
-            msg = "is";
-        else
-            msg = "is not";
-
-        System.out.printf("%d %s a prime number.", userNo, msg);
+        /*
+         * This will print out if a number is a prime number or not
+         * from 1 to either user specified or randomly generated number.
+         */
+        printPrime(1, userNo);
     }
 }
