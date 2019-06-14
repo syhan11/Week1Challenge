@@ -44,7 +44,7 @@ public class Week1Challenge {
 
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.print("Enter an inter: ");
+        System.out.print("Please enter an inter: ");
         userNo = keyboard.nextInt();
 
         // Check if given number is a prime number
@@ -58,7 +58,8 @@ public class Week1Challenge {
         System.out.printf("%d %s a prime number.", userNo, msg);
     }
 
-    public static void main(String[] args){
+    public static void randomOption() {
+
         int randomNo = 0, maxNo = 250;
         Boolean priNo;
         String msg = "";
@@ -74,6 +75,25 @@ public class Week1Challenge {
             msg = "is not";
 
         System.out.printf("Random number %d %s a prime number.", randomNo, msg);
+
+    }
+
+    public static void main(String[] args){
+        String userA = "";
+
+        Scanner keyboard = new Scanner(System.in);
+
+        System.out.print("Would you like to generate a random number (Y/N)? ");
+        userA = keyboard.next();
+
+        // Check user's option
+        if ((userA.compareTo("y") == 0) || (userA.compareTo("Y") == 0)) {
+            System.out.println("Generating a random number...");
+            randomOption();
+        }
+        else
+            userOption();
+
 
     }
 }
